@@ -46,6 +46,7 @@ const dict = {
     faq5q: "Windows показывает предупреждение безопасности. Это нормально?",
     faq5a: "Да, иногда Windows/SmartScreen может показывать предупреждение для приложений, которые распространяются не через Microsoft Store. Скачивайте RiftTalk только по официальным ссылкам GitHub и запускайте, если доверяете источнику.",
     riotDisclaimer: "RiftTalk не поддерживается Riot Games и не отражает взгляды Riot Games или кого-либо, кто официально участвует в создании или управлении League of Legends. League of Legends™ и Riot Games являются товарными знаками или зарегистрированными товарными знаками Riot Games, Inc.",
+    discordDisclaimer: "RiftTalk не поддерживается Discord и не отражает взгляды Discord. Discord и логотип Discord являются товарными знаками или зарегистрированными товарными знаками Discord Inc.",
   },
   en: {
     chipDiscord: "Discord",
@@ -90,6 +91,7 @@ const dict = {
     faq5q: "Windows shows a security warning. Is this normal?",
     faq5a: "Yes. Windows/SmartScreen may warn about apps distributed outside the Microsoft Store. Download RiftTalk only from the official GitHub links and run it only if you trust the source.",
     riotDisclaimer: "RiftTalk is not endorsed by Riot Games and does not reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends™ and Riot Games are trademarks or registered trademarks of Riot Games, Inc.",
+    discordDisclaimer: "RiftTalk is not endorsed by Discord and does not reflect the views or opinions of Discord. Discord and the Discord logo are trademarks or registered trademarks of Discord Inc.",
   },
 };
 

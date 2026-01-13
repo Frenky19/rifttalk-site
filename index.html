@@ -6,105 +6,110 @@
     <title>RiftTalk — командный voice для LoL</title>
     <meta name="description" content="RiftTalk — автоматический командный голосовой чат в Discord для League of Legends." />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
   </head>
 
   <body>
+    <div class="bg">
+      <div class="bg__glow"></div>
+      <div class="bg__grain"></div>
+    </div>
+
     <header class="topbar">
       <div class="container topbar__inner">
-        <a class="brand" href="#">
-          <span class="brand__mark" aria-hidden="true"></span>
+        <a class="brand" href="#" aria-label="RiftTalk">
+          <img src="./assets/logo.png" alt="logo" width="50">
           <span class="brand__name">RiftTalk</span>
         </a>
 
-        <nav class="topbar__nav">
-          <a class="navlink" href="#how">Как работает</a>
-          <a class="navlink" href="#faq">FAQ</a>
-          <a class="navlink" href="#download">Скачать</a>
-        </nav>
+        <div class="topbar__right">
+          <div class="contacts">
+            <a class="icon-link" href="https://discord.gg/xBvdvPma" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+              <i class="fa-brands fa-discord"></i>
+            </a>
 
-        <div class="topbar__actions">
-          <button class="lang" id="langBtn" type="button" aria-label="Switch language">
-            RU / EN
-          </button>
+            <a class="icon-link" href="https://t.me/Frenky_19" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+              <i class="fa-brands fa-telegram"></i>
+            </a>
+
+            <a class="icon-link" href="mailto:frenkodetto@yandex.ru" aria-label="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+          <button class="lang" id="langBtn" type="button" aria-label="Switch language">RU</button>
         </div>
       </div>
     </header>
 
-    <main>
-      <!-- HERO -->
+    <main class="main">
       <section class="hero">
-        <div class="container hero__grid">
-          <div class="hero__text">
-            <p class="kicker" data-i18n="kicker">Командный voice без лишних движений</p>
-            <h1 class="h1" data-i18n="title">
-              Автоматический голосовой чат в Discord для League of Legends
-            </h1>
-            <p class="lead" data-i18n="lead">
-              Запусти RiftTalk → начни матч → общайся с командой. В момент начала игры создаётся голосовой канал команды, а после матча всё аккуратно удаляется.
-            </p>
+        <div class="container hero__inner">
+          <h1 class="hero__title">
+            <span data-i18n="titleA">Подключайся к войсу</span>
+            <span class="accent" data-i18n="titleB">автоматически</span>
+            <span data-i18n="titleC">в начале матча</span>
+          </h1>
 
-            <div class="cta">
-              <a class="btn btn--primary" id="downloadBtn" href="https://github.com/Frenky19/RiftTalk-Desktop-App/archive/refs/tags/RiftTalk.zip" target="_blank" rel="noreferrer" data-i18n="download">
-                Скачать для Windows
-              </a>
-              <a class="btn btn--ghost" href="#how" data-i18n="howBtn">Как это работает</a>
-            </div>
+          <p class="hero__desc" data-i18n="lead">
+            RiftTalk создаёт голосовой канал команды в Discord при старте игры в League of Legends и аккуратно удаляет всё после матча.
+          </p>
 
-            <div class="meta">
-              <span class="pill" data-i18n="meta1">Windows 10/11</span>
-              <span class="pill" data-i18n="meta2">Discord OAuth</span>
-              <span class="pill" data-i18n="meta3">Авто-каналы</span>
-            </div>
+          <div class="hero__cta" id="download">
+            <a class="btn btn--primary"
+               href="https://github.com/Frenky19/RiftTalk-Desktop-App/archive/refs/tags/RiftTalk.zip"
+               target="_blank" rel="noreferrer"
+               data-i18n="downloadBtn">
+              Скачать RiftTalk (Windows)
+            </a>
 
-            <div class="links">
-              <a class="slink" href="https://github.com/Frenky19/RiftTalk" target="_blank" rel="noreferrer" data-i18n="source">
-                Исходный код (GitHub)
+            <div class="subLinks">
+              <a class="subLinks__a" href="https://github.com/Frenky19/RiftTalk" target="_blank" rel="noreferrer" data-i18n="srcLink">
+                исходный код
               </a>
               <span class="dot">•</span>
-              <a class="slink" href="https://github.com/Frenky19/RiftTalk-Desktop-App" target="_blank" rel="noreferrer" data-i18n="releases">
-                Репозиторий сборок
+              <a class="subLinks__a" href="https://github.com/Frenky19/RiftTalk-Desktop-App" target="_blank" rel="noreferrer" data-i18n="buildLink">
+                репозиторий сборок
               </a>
             </div>
           </div>
 
-          <div class="hero__preview">
-            <div class="frame">
+          <div class="preview">
+            <div class="preview__frame">
               <img src="./assets/preview.png" alt="RiftTalk preview" />
             </div>
-            <p class="caption" data-i18n="caption">
-              Один запуск — и дальше всё происходит автоматически.
-            </p>
           </div>
         </div>
       </section>
 
-      <!-- HOW IT WORKS -->
-      <section class="section" id="how">
+      <section class="how" id="how">
         <div class="container">
-          <h2 class="h2" data-i18n="howTitle">Как RiftTalk работает</h2>
-          <p class="sub" data-i18n="howSub">
-            Никакой магии — просто аккуратная автоматизация вокруг Discord и статуса матча.
-          </p>
+          <div class="how__head">
+            <h2 class="h2" data-i18n="howTitle">Как RiftTalk работает</h2>
+            <p class="how__sub" data-i18n="howSub">
+              Никакой магии — просто аккуратная автоматизация вокруг Discord и статуса матча.
+            </p>
+          </div>
 
-          <div class="cards">
-            <article class="card">
-              <div class="card__num">1</div>
+          <div class="how__grid">
+            <article class="step">
+              <div class="step__num">1</div>
               <h3 class="h3" data-i18n="how1t">Привязка Discord</h3>
               <p class="p" data-i18n="how1d">
                 Вы авторизуетесь через официальный Discord OAuth. Пароль Discord приложение не запрашивает.
               </p>
             </article>
 
-            <article class="card">
-              <div class="card__num">2</div>
+            <article class="step">
+              <div class="step__num">2</div>
               <h3 class="h3" data-i18n="how2t">Старт матча</h3>
               <p class="p" data-i18n="how2d">
                 В момент начала игры создаются временные голосовые каналы и выдаются роли/доступы игрокам команды.
               </p>
             </article>
 
-            <article class="card">
-              <div class="card__num">3</div>
+            <article class="step">
+              <div class="step__num">3</div>
               <h3 class="h3" data-i18n="how3t">Автоочистка</h3>
               <p class="p" data-i18n="how3d">
                 После окончания матча пользователи выводятся из каналов, роли снимаются, временные каналы удаляются.
@@ -113,69 +118,65 @@
           </div>
         </div>
       </section>
-
-      <!-- DOWNLOAD -->
-      <section class="section section--tint" id="download">
-        <div class="container download">
-          <div class="download__box">
-            <h2 class="h2" data-i18n="dlTitle">Скачать RiftTalk</h2>
-            <p class="sub" data-i18n="dlSub">
-              Скачивание ведёт на архив тега в GitHub.
-            </p>
-
-            <div class="dlrow">
-              <a class="btn btn--primary" href="https://github.com/Frenky19/RiftTalk-Desktop-App/archive/refs/tags/RiftTalk.zip" target="_blank" rel="noreferrer" data-i18n="dlBtn">
-                Скачать RiftTalk.zip
-              </a>
-              <a class="btn btn--ghost" href="https://github.com/Frenky19/RiftTalk" target="_blank" rel="noreferrer" data-i18n="dlSrc">
-                Открыть исходники
-              </a>
-            </div>
-
-            <div class="note">
-              <strong data-i18n="noteT">Важно:</strong>
-              <span data-i18n="noteB">
-                Если Windows покажет предупреждение безопасности, это нормально для не-магазинных приложений. Скачивайте только из официальных ссылок выше.
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section class="section" id="faq">
+      <section class="faq" id="faq">
         <div class="container">
-          <h2 class="h2" data-i18n="faqTitle">FAQ</h2>
+          <div class="faq__head">
+            <h2 class="h2" data-i18n="faqTitle">FAQ</h2>
+            <p class="faq__sub" data-i18n="faqSub">Ответы на частые вопросы.</p>
+          </div>
 
-          <details class="faq">
-            <summary data-i18n="faq1q">Почему не закидывает в голосовой канал?</summary>
-            <p data-i18n="faq1a">
-              Проверьте: приложение запущено до начала матча, Discord запущен и вы вошли в аккаунт, Discord привязан, вы на нужном сервере.
-            </p>
-          </details>
+          <div class="faq__list">
+            <details class="faq__item" open>
+              <summary class="faq__q" data-i18n="faq1q">Это безопасно? RiftTalk не просит пароль от Discord?</summary>
+              <div class="faq__a" data-i18n="faq1a">
+                Да. Привязка происходит через официальный Discord OAuth. RiftTalk не запрашивает и не хранит ваш пароль Discord.
+              </div>
+            </details>
 
-          <details class="faq">
-            <summary data-i18n="faq2q">Нужно ли держать Discord открытым?</summary>
-            <p data-i18n="faq2a">
-              Да, рекомендуется запускать Discord перед игрой и не закрывать во время матча.
-            </p>
-          </details>
+            <details class="faq__item">
+              <summary class="faq__q" data-i18n="faq2q">Почему меня не закидывает в голосовой канал?</summary>
+              <div class="faq__a" data-i18n="faq2a">
+                Проверьте: приложение запущено до начала матча, Discord запущен и вы вошли в аккаунт, аккаунт привязан, вы на нужном Discord-сервере.
+              </div>
+            </details>
 
-          <details class="faq">
-            <summary data-i18n="faq3q">Где посмотреть исходный код?</summary>
-            <p data-i18n="faq3a">
-              Исходники доступны на GitHub: ссылка есть вверху страницы и в блоке скачивания.
-            </p>
-          </details>
+            <details class="faq__item">
+              <summary class="faq__q" data-i18n="faq3q">Когда создаются и удаляются каналы?</summary>
+              <div class="faq__a" data-i18n="faq3a">
+                Каналы создаются в момент начала игры. После окончания матча пользователи выводятся из каналов, роли снимаются, временные каналы удаляются.
+              </div>
+            </details>
+
+            <details class="faq__item">
+              <summary class="faq__q" data-i18n="faq4q">Нужно ли устанавливать что-то дополнительно?</summary>
+              <div class="faq__a" data-i18n="faq4a">
+                Нет. Достаточно запустить RiftTalk и иметь установленный Discord и League of Legends.
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q" data-i18n="faq5q">Windows показывает предупреждение безопасности. Это нормально?</summary>
+              <div class="faq__a" data-i18n="faq5a">
+                Да, иногда Windows/SmartScreen может показывать предупреждение для приложений, которые распространяются не через Microsoft Store.
+                Скачивайте RiftTalk только по официальным ссылкам GitHub и запускайте, если доверяете источнику.
+              </div>
+            </details>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <div class="container footer__inner">
-        <span>© <span id="year"></span> RiftTalk</span>
-        <span class="footer__sep">—</span>
-        <a class="slink" href="https://github.com/Frenky19/RiftTalk" target="_blank" rel="noreferrer">GitHub</a>
+        <div class="footer__left">
+          <span>© <span id="year"></span> Frenky19</span>
+          <span class="sep">—</span>
+          <a class="f" href="https://github.com/Frenky19/RiftTalk" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+
+        <p class="disclaimer" data-i18n="riotDisclaimer">
+          RiftTalk не поддерживается Riot Games и не отражает взгляды Riot Games или кого-либо, кто официально участвует в создании или управлении League of Legends.
+          League of Legends™ и Riot Games являются товарными знаками или зарегистрированными товарными знаками Riot Games, Inc.
+        </p>
       </div>
     </footer>
 

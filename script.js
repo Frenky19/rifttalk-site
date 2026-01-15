@@ -10,10 +10,10 @@ const dict = {
 
 
     kicker: "Командный voice без лишних движений",
-    titleA: "Подключайся к войсу",
-    titleB: "автоматически",
-    titleC: "в начале матча",
-    lead: "RiftTalk создаёт голосовой канал команды в Discord при старте игры в League of Legends и аккуратно удаляет всё после матча.",
+    titleA: "Общайся с тиммейтами в",
+    titleB: "Лиге легенд",
+    titleC: "голосом!",
+    lead: "Более 10 000 человек уже общаются голосом в Лиге Легенд",
 
     downloadBtn: "Скачать RiftTalk (Windows)",
     srcLink: "исходный код",
@@ -56,10 +56,10 @@ const dict = {
     chipEmail: "Email",
 
     kicker: "Team voice without extra steps",
-    titleA: "Join voice",
-    titleB: "automatically",
-    titleC: "when the match starts",
-    lead: "RiftTalk creates a team voice channel in Discord when your League of Legends match starts and cleans everything up after the game.",
+    titleA: "Voice chat with your teammates in",
+    titleB: "League of Legends!",
+    titleC: "",
+    lead: "Over 10 000 people are already using voice chat in League of Legends.",
 
     downloadBtn: "Download RiftTalk (Windows)",
     srcLink: "source code",

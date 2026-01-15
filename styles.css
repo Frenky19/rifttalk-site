@@ -171,8 +171,10 @@ body{
 .accent{
   color: var(--accent);
   text-shadow: 0 10px 40px rgba(245,200,76,.18);
-  margin: 0 .18em;
+  margin: 0 .18em 0 0;
 }
+
+.hero__break{ display:block; }
 
 .hero__desc{
   margin: 14px 0 0;

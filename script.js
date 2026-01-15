@@ -11,9 +11,9 @@ const dict = {
 
     kicker: "Командный voice без лишних движений",
     titleA: "Общайся с тиммейтами в",
-    titleB: "Лиге легенд",
+    titleB: "Лиге Легенд",
     titleC: "голосом!",
-    lead: "Более 10 000 человек уже общаются голосом в Лиге Легенд",
+    lead: "Более 10 000 человек уже общаются голосом в Лиге Легенд.",
 
     downloadBtn: "Скачать RiftTalk (Windows)",
     srcLink: "исходный код",
@@ -57,8 +57,8 @@ const dict = {
 
     kicker: "Team voice without extra steps",
     titleA: "Voice chat with your teammates in",
-    titleB: "League of Legends!",
-    titleC: "",
+    titleB: "League of Legends",
+    titleC: "!",
     lead: "Over 10 000 people are already using voice chat in League of Legends.",
 
     downloadBtn: "Download RiftTalk (Windows)",

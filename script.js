@@ -132,8 +132,28 @@ applyLang("ru");
   const btnNext = root.querySelector('.comic__nav--next');
   const counter = root.querySelector('.comic__counter');
 
-  const images = Array.from({ length: 13 }, (_, i) => `./assets/comic/${String(i + 1).padStart(2, '0')}.png`);
+  // Support both naming schemes:
+  const imagesPlain = Array.from({ length: 13 }, (_, i) => `./assets/comic/${i + 1}.png`);
+  const imagesPadded = Array.from({ length: 13 }, (_, i) => `./assets/comic/${String(i + 1).padStart(2, '0')}.png`);
+  let images = imagesPlain;
+
   let idx = 0;
+  let firstRender = true;
+
+  function setCurrentFrame(src, immediate = false){
+    if (!imgCur) return;
+    if (immediate){
+      imgCur.src = src;
+      return;
+    }
+
+    imgCur.classList.add('is-fading');
+    window.setTimeout(() => {
+      imgCur.src = src;
+      // next tick so the browser applies src before removing the class
+      window.requestAnimationFrame(() => imgCur.classList.remove('is-fading'));
+    }, 260);
+  }
 
   function render(){
     const len = images.length;
@@ -141,11 +161,13 @@ applyLang("ru");
     const next = (idx + 1) % len;
 
     if (imgPrev) imgPrev.src = images[prev];
-    if (imgCur)  imgCur.src  = images[idx];
+    setCurrentFrame(images[idx], firstRender);
     if (imgNext) imgNext.src = images[next];
 
     if (imgCur) imgCur.alt = `Comic frame ${idx + 1} of ${len}`;
     if (counter) counter.textContent = `${idx + 1} / ${len}`;
+
+    firstRender = false;
   }
 
   function go(delta){
@@ -180,18 +202,36 @@ applyLang("ru");
     else go(1);
   }, { passive: true });
 
-  // Preload for smoother switching
-  images.forEach((src) => {
-    const im = new Image();
-    im.src = src;
-  });
+  function preload(list){
+    list.forEach((src) => {
+      const im = new Image();
+      im.src = src;
+    });
+  }
 
-  // If images are missing, fall back to preview.png
-  const test = new Image();
-  test.onload = () => render();
-  test.onerror = () => {
-    for (let i = 0; i < images.length; i++) images[i] = './assets/preview.png';
-    render();
-  };
-  test.src = images[0];
+  // Detect which naming scheme exists, then render.
+  function pickImagesAndStart(){
+    const testPlain = new Image();
+    testPlain.onload = () => {
+      images = imagesPlain;
+      preload(images);
+      render();
+    };
+    testPlain.onerror = () => {
+      const testPad = new Image();
+      testPad.onload = () => {
+        images = imagesPadded;
+        preload(images);
+        render();
+      };
+      testPad.onerror = () => {
+        images = Array.from({ length: 12 }, () => './assets/preview.png');
+        render();
+      };
+      testPad.src = imagesPadded[0];
+    };
+    testPlain.src = imagesPlain[0];
+  }
+
+  pickImagesAndStart();
 })();

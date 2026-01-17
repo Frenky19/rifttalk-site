@@ -262,6 +262,7 @@ body{
   gap: 10px;
   align-items:center;
 }
+
 @media (max-width: 520px){
   .comic{ grid-template-columns: 40px 1fr 40px; gap: 8px; }
 }
@@ -279,57 +280,82 @@ body{
   box-shadow: 0 14px 40px rgba(0,0,0,.22);
   transition: transform .12s ease, background .12s ease, border-color .12s ease;
 }
+
 .comic__nav:hover{
   background: rgba(255,255,255,.10);
   border-color: rgba(255,255,255,.18);
   transform: translateY(-1px);
 }
-.comic__nav:active{ transform: translateY(0px) scale(.98); }
 
+.comic__nav:active{ transform: translateY(0px) scale(.98); }
 .comic__nav span{ font-size: 28px; line-height: 1; }
 
+/* The stage is height-limited so the comic never eats the whole screen */
 .comic__stage{
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; /* side frames can go out, but we clip them */
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(0,0,0,.10);
+
+  height: min(72vh, 760px);
+  padding: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.comic__img{
-  width: 100%;
-  height: auto;
+@media (max-width: 520px){
+  .comic__stage{ height: 62vh; padding: 8px; }
+}
+
+/* Base: don't let global img{width:100%} stretch the comic */
+.comic__stage .comic__img{
   display:block;
   user-select:none;
-  -webkit-user-drag: none;
+  -webkit-user-drag:none;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
-/* current */
-.comic__img--current{
+/* Center frame: always fully visible, with smooth fade */
+.comic__stage .comic__img--current{
   position: relative;
   z-index: 3;
+
+  width: auto !important;
+  height: auto !important;
+  max-width: calc(100% - 20px) !important;
+  max-height: calc(100% - 20px) !important;
+  object-fit: contain !important;
+
+  transition: opacity 420ms ease, transform 520ms ease;
+  opacity: 1;
 }
 
-/* prev/next faded on sides */
-.comic__img--prev,
-.comic__img--next{
+.comic__stage .comic__img--current.is-fading{
+  opacity: 0;
+  transform: scale(0.985);
+}
+
+/* Side frames: more transparent */
+.comic__stage .comic__img--prev,
+.comic__stage .comic__img--next{
   position: absolute;
   top: 0;
+  height: 100%;
   width: 92%;
-  opacity: .35;
-  filter: blur(.2px);
+  object-fit: contain;
+  opacity: .06;
+  filter: blur(.3px);
   z-index: 1;
   pointer-events:none;
 }
-.comic__img--prev{
-  left: -18%;
-  transform: scale(.92);
-}
-.comic__img--next{
-  right: -18%;
-  transform: scale(.92);
-}
+
+.comic__stage .comic__img--prev{ left: -18%; transform: scale(.92); }
+.comic__stage .comic__img--next{ right: -18%; transform: scale(.92); }
 
 .comic__counter{
   grid-column: 1 / -1;

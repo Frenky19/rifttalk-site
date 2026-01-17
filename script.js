@@ -13,7 +13,7 @@ const dict = {
     titleA: "Общайся с тиммейтами в",
     titleB: "Лиге Легенд",
     titleC: "голосом!",
-    lead: "Более 10 000 человек уже общаются голосом в Лиге Легенд.",
+    lead: "Будь одним из тех, кто создает новый игровой опыт.",
 
     downloadBtn: "Скачать RiftTalk (Windows)",
     srcLink: "исходный код",
@@ -59,7 +59,7 @@ const dict = {
     titleA: "Voice chat with your teammates in",
     titleB: "League of Legends!",
     titleC: "",
-    lead: "Over 10 000 people are already using voice chat in League of Legends.",
+    lead: "Be one of who create new gaming experience.",
 
     downloadBtn: "Download RiftTalk (Windows)",
     srcLink: "source code",

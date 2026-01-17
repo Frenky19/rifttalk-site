@@ -253,6 +253,91 @@ body{
   border: 1px solid rgba(255,255,255,.10);
 }
 
+
+
+/* Comic carousel (12 frames) */
+.comic{
+  display:grid;
+  grid-template-columns: 44px 1fr 44px;
+  gap: 10px;
+  align-items:center;
+}
+@media (max-width: 520px){
+  .comic{ grid-template-columns: 40px 1fr 40px; gap: 8px; }
+}
+
+.comic__nav{
+  height: 44px;
+  width: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: rgba(233,236,255,.92);
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  box-shadow: 0 14px 40px rgba(0,0,0,.22);
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+.comic__nav:hover{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.18);
+  transform: translateY(-1px);
+}
+.comic__nav:active{ transform: translateY(0px) scale(.98); }
+
+.comic__nav span{ font-size: 28px; line-height: 1; }
+
+.comic__stage{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.10);
+}
+
+.comic__img{
+  width: 100%;
+  height: auto;
+  display:block;
+  user-select:none;
+  -webkit-user-drag: none;
+}
+
+/* current */
+.comic__img--current{
+  position: relative;
+  z-index: 3;
+}
+
+/* prev/next faded on sides */
+.comic__img--prev,
+.comic__img--next{
+  position: absolute;
+  top: 0;
+  width: 92%;
+  opacity: .35;
+  filter: blur(.2px);
+  z-index: 1;
+  pointer-events:none;
+}
+.comic__img--prev{
+  left: -18%;
+  transform: scale(.92);
+}
+.comic__img--next{
+  right: -18%;
+  transform: scale(.92);
+}
+
+.comic__counter{
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(169,176,214,.9);
+  text-align:center;
+}
 .how{
   padding: 34px 0 30px;
 }

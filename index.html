@@ -76,7 +76,23 @@
 
           <div class="preview">
             <div class="preview__frame">
-              <img src="./assets/preview.png" alt="RiftTalk preview" />
+              <div class="comic" data-comic>
+                <button class="comic__nav comic__nav--prev" type="button" aria-label="Previous">
+                  <span aria-hidden="true">&#x2039;</span>
+                </button>
+
+                <div class="comic__stage" aria-label="RiftTalk comic preview" role="group">
+                  <img class="comic__img comic__img--prev" alt="" />
+                  <img class="comic__img comic__img--current" alt="RiftTalk comic frame" />
+                  <img class="comic__img comic__img--next" alt="" />
+                </div>
+
+                <button class="comic__nav comic__nav--next" type="button" aria-label="Next">
+                  <span aria-hidden="true">&#x203A;</span>
+                </button>
+
+                <div class="comic__counter" aria-live="polite"></div>
+              </div>
             </div>
           </div>
         </div>
